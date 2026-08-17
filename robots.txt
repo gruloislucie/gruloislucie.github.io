@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://REMPLACE-PAR-TON-URL/sitemap.xml
+Sitemap: https://gruloislucie.github.io/sitemap.xml

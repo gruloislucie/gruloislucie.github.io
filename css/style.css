@@ -1,0 +1,740 @@
+/* ==========================================================================
+   PORTFOLIO LUCIE GRULOIS — FEUILLE DE STYLE PRINCIPALE
+   Structure : 1. Variables  2. Reset  3. Typo  4. Layout général
+               5. Navigation (intercalaires)  6. Page Profil
+               7. Page Inspirations  8. Page Projets  9. Page Contact
+               10. Footer  11. Transitions  12. Responsive
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------
+   1. VARIABLES
+   ------------------------------------------------------------------------- */
+:root {
+  /* couleurs */
+  --color-header-bg: #5C5C5C;
+  --color-bg: #3A3A3A;
+  --color-bg-light: #454545;
+  --color-text: #FFFFFF;
+  --color-text-on-accent: #5C5C5C;
+
+  --color-tab-profil: #D0B0FA;
+  --color-tab-inspirations: #FF8AB7;
+  --color-tab-projets: #FFDC5A;
+  --color-tab-cv: #D5EF56;
+  --color-tab-contact: #ACF3EB;
+
+  /* typographie */
+  --font-title: "Finger Paint", cursive;
+  --font-body: "Exo", sans-serif;
+
+  /* espacements */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+
+  /* structure */
+  --max-width: 1200px;
+  --radius: 14px;
+  --transition-fast: 0.25s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* -------------------------------------------------------------------------
+   2. RESET
+   ------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* -------------------------------------------------------------------------
+   3. TYPOGRAPHIE — TAILLES
+   ------------------------------------------------------------------------- */
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); }
+h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+/* -------------------------------------------------------------------------
+   4. LAYOUT GÉNÉRAL
+   ------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+main {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-xl);
+  min-height: 70vh;
+}
+
+/* -------------------------------------------------------------------------
+   5. NAVIGATION — LES INTERCALAIRES
+   ------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-header-bg);
+  padding-top: var(--space-sm);
+  padding-bottom: 10px;
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  color: var(--color-text);
+  padding-bottom: var(--space-sm);
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--color-tab-inspirations);
+}
+
+.nav-toggle {
+  display: none;
+  color: var(--color-text);
+  font-size: 1.8rem;
+  padding: var(--space-xs);
+}
+
+.main-nav {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tab-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.4rem 0.75rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text-on-accent);
+  border-radius: var(--radius) var(--radius) 0 0;
+  transform: translateY(6px);
+  transition: transform var(--transition-fast), font-weight var(--transition-fast),
+    box-shadow var(--transition-fast);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.tab-link:nth-child(1) { background: var(--color-tab-profil); }
+.tab-link:nth-child(2) { background: var(--color-tab-inspirations); }
+.tab-link:nth-child(3) { background: var(--color-tab-projets); }
+.tab-link:nth-child(4) { background: var(--color-tab-cv); }
+.tab-link:nth-child(5) { background: var(--color-tab-contact); }
+
+.tab-link:hover,
+.tab-link:focus-visible {
+  font-weight: 800;
+  transform: translateY(0) scale(1.08);
+  box-shadow: 0 -6px 14px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+.tab-link.is-active {
+  transform: translateY(0);
+  box-shadow: 0 -6px 14px rgba(0, 0, 0, 0.3);
+  font-weight: 800;
+}
+
+/* -------------------------------------------------------------------------
+   6. PAGE PROFIL
+   ------------------------------------------------------------------------- */
+.intro {
+  display: grid;
+  grid-template-columns: minmax(220px, 340px) 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+  margin-bottom: var(--space-xl);
+}
+
+.polaroid {
+  background: #FFFFFF;
+  padding: 1rem 1rem 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
+  transform: rotate(-4deg);
+  transition: transform var(--transition-slow);
+}
+
+.polaroid figcaption {
+  font-family: var(--font-title);
+  color: var(--color-text-on-accent);
+  text-align: center;
+  padding-top: 0.6rem;
+  padding-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.intro-text h1 {
+  margin-bottom: var(--space-sm);
+}
+
+.intro-text h1 em {
+  font-style: normal;
+  color: var(--color-tab-inspirations);
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 1rem;
+}
+
+.info-list li {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.info-list .label {
+  min-width: 90px;
+  opacity: 0.65;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-top: 0.15rem;
+}
+
+.quote-block {
+  max-width: 760px;
+  margin: 0 auto var(--space-xl);
+  text-align: center;
+  padding: var(--space-md);
+  position: relative;
+}
+
+.quote-block::before {
+  content: "\201C";
+  font-family: var(--font-title);
+  font-size: 5rem;
+  color: var(--color-tab-cv);
+  line-height: 1;
+  opacity: 0.85;
+  display: block;
+}
+
+.quote-block blockquote {
+  font-family: var(--font-title);
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+  line-height: 1.5;
+}
+
+.skills-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  background: var(--color-bg-light);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+}
+
+.skills-section h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.chip {
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-on-accent);
+  transition: transform var(--transition-fast);
+}
+
+.chip:hover {
+  transform: translateY(-3px);
+}
+
+.chip:nth-child(5n+1) { background: var(--color-tab-profil); }
+.chip:nth-child(5n+2) { background: var(--color-tab-inspirations); }
+.chip:nth-child(5n+3) { background: var(--color-tab-projets); }
+.chip:nth-child(5n+4) { background: var(--color-tab-cv); }
+.chip:nth-child(5n+5) { background: var(--color-tab-contact); }
+
+.skills-bars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(5, auto);
+  gap: 0.9rem 1.5rem;
+}
+
+.skill-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.skill-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.skill-bar-item:nth-child(5n+1) .skill-dot { background: var(--color-tab-profil); }
+.skill-bar-item:nth-child(5n+2) .skill-dot { background: var(--color-tab-inspirations); }
+.skill-bar-item:nth-child(5n+3) .skill-dot { background: var(--color-tab-projets); }
+.skill-bar-item:nth-child(5n+4) .skill-dot { background: var(--color-tab-cv); }
+.skill-bar-item:nth-child(5n+5) .skill-dot { background: var(--color-tab-contact); }
+
+/* -------------------------------------------------------------------------
+   7. PAGE INSPIRATIONS — MOODBOARD
+   ------------------------------------------------------------------------- */
+.moodboard-intro {
+  max-width: 700px;
+  margin: 0 auto var(--space-lg);
+  text-align: center;
+}
+
+.moodboard {
+  column-count: 4;
+  column-gap: 18px;
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+.moodboard-item {
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 22px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border: 6px solid #fff;
+  border-radius: 2px;
+  transition: transform var(--transition-fast);
+  cursor: pointer;
+}
+
+.moodboard-item:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  position: relative;
+  z-index: 5;
+}
+
+.moodboard-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1px;
+}
+
+.moodboard-item:nth-child(6n+1) { transform: rotate(-3deg); }
+.moodboard-item:nth-child(6n+2) { transform: rotate(2deg); }
+.moodboard-item:nth-child(6n+3) { transform: rotate(-1.5deg); }
+.moodboard-item:nth-child(6n+4) { transform: rotate(3deg); }
+.moodboard-item:nth-child(6n+5) { transform: rotate(-2.5deg); }
+.moodboard-item:nth-child(6n+6) { transform: rotate(1.5deg); }
+
+/* -------------------------------------------------------------------------
+   8. PAGE PROJETS
+   ------------------------------------------------------------------------- */
+.projects-intro {
+  max-width: 700px;
+  margin: 0 auto var(--space-lg);
+  text-align: center;
+}
+
+.projects-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+.projects-row.row-2 {
+  grid-template-columns: minmax(0, 420px);
+  justify-content: center;
+}
+
+.project-card {
+  background: var(--color-bg-light);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+}
+
+.project-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* exception : l'illustration verticale reste entièrement visible */
+.project-thumb.project-thumb--full {
+  aspect-ratio: 3 / 4;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-thumb.project-thumb--full img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
+.project-body {
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-height: 8.5rem;
+}
+
+.project-body h3 {
+  font-family: var(--font-body);
+  font-weight: 800;
+}
+
+.project-card:nth-child(5n+1) .project-body h3,
+.project-card.color-1 .project-body h3 { color: var(--color-tab-profil); }
+.project-card:nth-child(5n+2) .project-body h3,
+.project-card.color-2 .project-body h3 { color: var(--color-tab-inspirations); }
+.project-card:nth-child(5n+3) .project-body h3,
+.project-card.color-3 .project-body h3 { color: var(--color-tab-projets); }
+.project-card:nth-child(5n+4) .project-body h3,
+.project-card.color-4 .project-body h3 { color: var(--color-tab-cv); }
+.project-card:nth-child(5n+5) .project-body h3,
+.project-card.color-5 .project-body h3 { color: var(--color-tab-contact); }
+
+.project-body p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* -------------------------------------------------------------------------
+   9. PAGE CONTACT
+   ------------------------------------------------------------------------- */
+.contact-page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.contact-inner {
+  max-width: 640px;
+}
+
+.contact-inner h1 {
+  margin-bottom: var(--space-md);
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: center;
+  margin-top: var(--space-lg);
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 100px;
+  border: 2px solid var(--color-tab-contact);
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  background: var(--color-tab-contact);
+  color: var(--color-text-on-accent);
+  transform: translateY(-3px);
+  font-weight: 700;
+}
+
+.contact-link .icon {
+  font-size: 1.2rem;
+}
+
+/* -------------------------------------------------------------------------
+   10. FOOTER
+   ------------------------------------------------------------------------- */
+.site-footer {
+  text-align: center;
+  padding: var(--space-md);
+  font-size: 0.8rem;
+  opacity: 0.55;
+}
+
+/* -------------------------------------------------------------------------
+   11. TRANSITIONS ENTRE PAGES
+   ------------------------------------------------------------------------- */
+@view-transition {
+  navigation: auto;
+}
+
+main {
+  animation: page-fade-in 0.6s ease both;
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  main { animation: none; }
+  * { transition: none !important; }
+}
+
+/* -------------------------------------------------------------------------
+   12. RESPONSIVE
+   ------------------------------------------------------------------------- */
+
+/* Page Inspirations en desktop : tout tient dans l'écran, sans défilement */
+@media (min-width: 901px) {
+  body.page-inspirations main {
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body.page-inspirations .moodboard-intro {
+    margin-bottom: var(--space-sm);
+    flex-shrink: 0;
+  }
+
+  body.page-inspirations .moodboard {
+    column-count: unset;
+    column-gap: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 14px;
+    max-width: 1400px;
+    width: 100%;
+    height: calc(100vh - 260px);
+    min-height: 420px;
+  }
+
+  body.page-inspirations .moodboard-item {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body.page-inspirations .moodboard-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 900px) {
+  .intro {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .polaroid {
+    width: 260px;
+  }
+  .info-list li {
+    justify-content: center;
+  }
+
+  .skills-section {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-row {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+
+  .projects-row.row-2 {
+    max-width: 100%;
+  }
+
+  .moodboard {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    order: 3;
+  }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .tab-link {
+    border-radius: 8px;
+    transform: none;
+    width: 100%;
+    padding: 0.9rem;
+  }
+
+  .tab-link:hover,
+  .tab-link.is-active {
+    transform: none;
+  }
+
+  .projects-row,
+  .projects-row.row-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-bars {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    grid-template-rows: none;
+  }
+
+  .moodboard {
+    column-count: 2;
+    column-gap: 12px;
+  }
+
+  .moodboard-item {
+    margin-bottom: 12px;
+  }
+}

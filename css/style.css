@@ -1,13 +1,56 @@
 /* ==========================================================================
    PORTFOLIO LUCIE GRULOIS — FEUILLE DE STYLE PRINCIPALE
-   Structure : 1. Variables  2. Reset  3. Typo  4. Layout général
-               5. Navigation (intercalaires)  6. Page Profil
-               7. Page Inspirations  8. Page Projets  9. Page Contact
-               10. Footer  11. Transitions  12. Responsive
+   Structure : 1. Polices  2. Variables  3. Reset  4. Typo  5. Layout général
+               6. Navigation (intercalaires)  7. Page Profil
+               8. Page Inspirations  9. Page Projets  10. Page Contact
+               11. Footer  12. Transitions  13. Responsive
    ========================================================================== */
 
 /* -------------------------------------------------------------------------
-   1. VARIABLES
+   1. POLICES (hébergées localement, plus de dépendance à Google Fonts)
+   ------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Exo";
+  src: url("../fonts/exo-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Exo";
+  src: url("../fonts/exo-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Exo";
+  src: url("../fonts/exo-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Exo";
+  src: url("../fonts/exo-800.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Finger Paint";
+  src: url("../fonts/finger-paint-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* -------------------------------------------------------------------------
+   2. VARIABLES
    ------------------------------------------------------------------------- */
 :root {
   /* couleurs */

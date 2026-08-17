@@ -19,8 +19,11 @@
   <link rel="icon" href="images/profil/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&amp;family=Finger+Paint&amp;display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&amp;family=Finger+Paint&amp;display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&amp;family=Finger+Paint&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&amp;family=Finger+Paint&amp;display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" as="image" href="images/profil/lucie-polaroid.jpg">
 
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-64EHMTEM9X"></script>
@@ -52,7 +55,7 @@
 
       <section class="intro">
         <figure class="polaroid">
-          <img src="images/profil/lucie-polaroid.jpg" alt="Photo portrait de Lucie Grulois, souriante" width="800" height="800" loading="eager">
+          <img src="images/profil/lucie-polaroid.jpg" alt="Photo portrait de Lucie Grulois, souriante" width="800" height="800" loading="eager" fetchpriority="high">
           <figcaption>Lucie</figcaption>
         </figure>
 
@@ -68,11 +71,11 @@
         </div>
       </section>
 
-      <section class="quote-block">
+      <div class="quote-block">
         <blockquote>
           Nothing is born ugly. We're just born in judgmental society.
         </blockquote>
-      </section>
+      </div>
 
       <section class="skills-section">
         <div class="apps-block">
